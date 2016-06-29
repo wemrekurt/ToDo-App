@@ -4,31 +4,52 @@
     <meta charset="utf-8">
     <title>ToDo App</title>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script type="text/javascript" src="todo.js">
-
-    </script>
+    <script type="text/javascript" src="todo.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
   </head>
   <body ng-app="ToDo" >
-    <div class="" ng-controller="TodoCtrl">
-      <form ng-submit="getTodo()">
-        <input type="text" ng-model="todonew" name="text" placeholder="Todo Ekle" />
-        <input type="submit" id="submit" value="Ekle" />
-      </form>
+    <div class="container">
+      <div class="clear">
 
-      <br>
-      <div ng-repeat="(key, x) in todos">
-
-          <input type="checkbox" ng-model="x.done" ng-change="setScope()" >
-          <span ng-if="x.done" style="text-decoration:line-through; color:#c6c6c6;">
-            <span ng-bind="x.todoText"></span>
-          </span>
-          <span ng-if="x.done == false">
-            <span ng-bind="x.todoText"></span>
-          </span>
       </div>
+      <div class="row">
+        <div class="col-md-3 col-xs-2"></div>
+        <div class="col-md-6 col-xs-8">
+          <div class="" ng-controller="TodoCtrl">
 
-      <p><button ng-click="clear()">Temizle</button></p>
+            <div class="addform">
+              <form ng-submit="getTodo()">
+                <input type="text" ng-model="todonew" name="text" placeholder="Todo Ekle" />
+              </form>
+            </div>
+
+
+            <div class="clear"></div>
+
+            <div ng-repeat="(key, x) in todos">
+              <input type="checkbox" ng-model="x.done" ng-change="setScope()" >
+              <span ng-if="x.done" style="text-decoration:line-through; color:#c6c6c6;">
+                <span ng-bind="x.todoText"></span>
+              </span>
+              <span ng-if="x.done == false">
+                <span ng-bind="x.todoText"></span>
+              </span>
+            </div>
+
+
+            <div class="clear"></div>
+            <p>
+              <button class="btn btn-warning" ng-click="clear()">Temizle</button>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-2"></div>
+
+      </div>
     </div>
+
+
 
   </body>
 </html>
