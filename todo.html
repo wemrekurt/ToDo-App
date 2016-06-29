@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ToDo App</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="todo.js">
+
+    </script>
+  </head>
+  <body ng-app="ToDo" >
+    <div class="" ng-controller="TodoCtrl">
+      <form ng-submit="getTodo()">
+        <input type="text" ng-model="todonew" name="text" placeholder="Todo Ekle" />
+        <input type="submit" id="submit" value="Ekle" />
+      </form>
+
+      <br>
+      <div ng-repeat="x in todos">
+          <input type="checkbox" ng-model="x.done">
+          <span ng-if="x.done" style="text-decoration:line-through; color:#c6c6c6;">
+            <span ng-bind="x.todoText"></span>
+          </span>
+          <span ng-if="x.done == false">
+            <span ng-bind="x.todoText"></span>
+          </span>
+      </div>
+
+      <p><button ng-click="clear()">Temizle</button></p>
+    </div>
+
+  </body>
+</html>
