@@ -16,8 +16,9 @@
       </form>
 
       <br>
-      <div ng-repeat="x in todos">
-          <input type="checkbox" ng-model="x.done">
+      <div ng-repeat="(key, x) in todos">
+
+          <input type="checkbox" ng-model="x.done" ng-change="setScope()" >
           <span ng-if="x.done" style="text-decoration:line-through; color:#c6c6c6;">
             <span ng-bind="x.todoText"></span>
           </span>
