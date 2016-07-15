@@ -1,13 +1,13 @@
 // DRY
-var app = angular.module('ToDo',[]);
+var app = angular.module('ToDo',['ngRoute']);
 
 app.controller("TodoCtrl",function($scope){
   $scope.todonew="";
-  $scope.todos = JSON.parse(localStorage.getItem("Todos")) || {0: {todoText:'Evi Temizle', done:false} };
+  $scope.todos = JSON.parse(localStorage.getItem("Todos")) || {0: {text:'Evi Temizle', state:false} };
 
-  $scope.getTodo = function(){
+  $scope.setTodo = function(){
     if($scope.todonew) {
-      $scope.todos[Object.keys($scope.todos).length] = {todoText:$scope.todonew, done:false};
+      $scope.todos[Object.keys($scope.todos).length] = {text:$scope.todonew, state:false};
       $scope.setScope();
       $scope.todonew = '';
     }
@@ -15,7 +15,7 @@ app.controller("TodoCtrl",function($scope){
 
   $scope.clear = function(){
     angular.forEach($scope.todos, function(value, key) {
-        if (value.done) delete $scope.todos[key];
+        if (value.state) delete $scope.todos[key];
     });
     $scope.setScope();
   }
@@ -25,3 +25,19 @@ app.controller("TodoCtrl",function($scope){
   }
 
 })
+
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.html",
+        controller : 'TodoCtrl'
+    })
+    .when("/notcompleted", {
+        templateUrl : "notcompleted.html",
+        controller : 'TodoCtrl'
+    })
+    .when("/completed", {
+        templateUrl : "completed.html",
+        controller : 'TodoCtrl'
+    });
+  });

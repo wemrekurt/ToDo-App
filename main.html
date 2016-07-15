@@ -1,0 +1,29 @@
+
+<div class="addform">
+  <form ng-submit="setTodo()">
+    <input type="text" ng-model="todonew" placeholder="Todo Ekle" />
+  </form>
+</div>
+
+
+<div class="clear"></div>
+
+<div ng-repeat="(key, x) in todos">
+
+  <input type="checkbox" ng-model="x.state" ng-change="setScope()" >
+
+  <span ng-if="x.state" style="text-decoration:line-through; color:#c6c6c6;">
+    <span ng-bind="x.text"></span>
+  </span>
+
+  <span ng-if="x.state == false">
+    <span ng-bind="x.text"></span>
+  </span>
+
+</div>
+
+
+<div class="clear"></div>
+<p>
+  <button class="btn btn-warning" ng-click="clear()">Temizle</button>
+</p>

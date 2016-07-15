@@ -1,0 +1,9 @@
+
+<div class="clear"></div>
+
+<div ng-repeat="(key, x) in todos">
+  <span ng-if="!x.state">
+    <input type="checkbox" ng-model="x.state" ng-change="setScope()" >
+    <span ng-bind="x.text"></span>
+  </span>
+</div>
