@@ -90,6 +90,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -166,6 +167,7 @@ DEPENDENCIES
   jquery-rails
   pry (~> 0.10.3)
   pry-rails
+  rack-cors
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

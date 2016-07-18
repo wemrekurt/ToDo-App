@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry', '~> 0.10.3'
 gem 'pry-rails', :group => :development
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
+gem 'rack-cors', :require => 'rack/cors'
+
 #gem 'devise', '~> 4.0'
 #gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 

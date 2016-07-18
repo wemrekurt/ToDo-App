@@ -2,10 +2,12 @@
 <div class="clear"></div>
 
 <div ng-repeat="(key, x) in todos">
-  <span ng-if="x.state" style="text-decoration:line-through; color:#c6c6c6;">
-    <input type="checkbox" ng-model="x.state" ng-change="setScope()" >
-    <span ng-bind="x.text"></span>
-  </span>
+  <div ng-if="todos[key]">
+    <span ng-if="x.state" style="text-decoration:line-through; color:#c6c6c6;">
+      <input type="checkbox" ng-model="x.state" ng-change="setScope(key)" >
+      <span ng-bind="x.title"></span>
+    </span>
+  </div>
 </div>
 
 
